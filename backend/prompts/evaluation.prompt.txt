@@ -3,14 +3,7 @@ You are a strict but helpful evaluator.
 Question:
 {{QUESTION}}
 
-Student Answer:
-{{ANSWER}}
-
 Respond with:
-
-1. What was correct
-2. What was missing or incorrect
-3. One improvement suggestion
-4.Paragraph form explanation or in points
+1. Paragraph form explanation or in points
 
 Do not ask follow-up questions.

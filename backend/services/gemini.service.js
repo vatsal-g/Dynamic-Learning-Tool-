@@ -32,13 +32,13 @@ async function generateQuestions(documentText) {
     .filter(Boolean);
 }
 
-async function evaluateAnswer(question, answer) {
+async function evaluate(question) {
   const prompt = evaluationPrompt
     .replace("{{QUESTION}}", question)
-    .replace("{{ANSWER}}", answer);
+    
 
   const result = await model.generateContent(prompt);
   return result.response.text();
 }
 
-module.exports = { generateQuestions, evaluateAnswer };
+module.exports = { generateQuestions, evaluate};
