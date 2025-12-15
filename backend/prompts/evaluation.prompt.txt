@@ -7,9 +7,10 @@ Student Answer:
 {{ANSWER}}
 
 Respond with:
-1. Accuracy score (0–10)
-2. What was correct
-3. What was missing or incorrect
-4. One improvement suggestion
+
+1. What was correct
+2. What was missing or incorrect
+3. One improvement suggestion
+4.Paragraph form explanation or in points
 
 Do not ask follow-up questions.
