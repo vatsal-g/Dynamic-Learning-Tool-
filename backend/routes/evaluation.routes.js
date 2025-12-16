@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/evaluate", async (req, res) => {
   const { question, answer } = req.body;
-  const feedback = await evaluate(question);
+  const feedback = await evaluateAnswer(question, answer);
   res.json({ feedback });
 });
 
