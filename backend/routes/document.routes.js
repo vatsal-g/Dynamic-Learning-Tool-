@@ -1,22 +1,25 @@
-console.log("🔥🔥 document.routes.js LOADED 🔥🔥");
-
 const express = require("express");
-const multer = require("multer");
-const upload = multer();
-
-const { generateQuestions } = require("../services/gemini.service");
-
 const router = express.Router();
 
-router.post("/generate-questions", upload.single("file"), async (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: "File is required" });
+const { generateFromText } = require("../services/gemini.service");
+
+console.log("📄 document.routes.js loaded");
+
+router.post("/generate-from-text", async (req, res) => {
+  try {
+    const { text } = req.body;
+
+    if (!text) {
+      return res.status(400).json({ error: "Text is required" });
+    }
+
+    const result = await generateFromText(text);
+    res.json({ result });
+
+  } catch (err) {
+    console.error("🔥 ERROR:", err.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
-
-  const text = req.file.buffer.toString("utf-8");
-  const questions = await generateQuestions(text);
-
-  res.json({ questions });
 });
 
 module.exports = router;
