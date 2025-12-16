@@ -1,0 +1,182 @@
+/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0b0b12;
+    color: #fff;
+    overflow: hidden;
+
+    /* Center hero content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Canvas covers entire background */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* allows clicks through canvas */
+    z-index: -1;          /* behind everything */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    z-index: 1; /* above the stars canvas */
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Hero Text */
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+    color: #ccc;
+}
+
+/* Buttons */
+button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    background: #1a1a25;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2; /* ensure above canvas */
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(150, 228, 229, 0.153); /* add subtle cyan glow */
+}
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-content {
+    position: relative;
+    background: #11111a;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: -10px;       /* slightly above */
+    right: -10px;     /* slightly more to the right */
+    font-size: 1.8rem;
+    color: #aaa;
+    background: #11111a;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-close:hover {
+    color: #00f6ff;
+    background: #1a1a25;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+.tab {
+    flex: 1;
+    padding: 10px;
+    background: #11111a;
+    border: none;
+    cursor: pointer;
+    color: #aaa;
+    transition: 0.3s;
+}
+.tab.active {
+    color: #fff;
+    border-bottom: 2px solid #000000;
+}
+
+/* Forms */
+.form {
+    display: none;
+    flex-direction: column;
+}
+.form.active {
+    display: flex;
+}
+.form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #0b0b12;
+    color: #fff;
+}
+.form button {
+    margin-top: 10px;
+}
+
+/* Blur background when modal is active */
+body.modal-active .hero {
+    filter: blur(6px);
+    pointer-events: none; /* prevent clicking behind modal */
+}
+
+
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* allows clicking through */
+    z-index: 0;           /* keep it behind everything */
+}

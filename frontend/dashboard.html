@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Canvas for subtle animated star background -->
+    <canvas id="stars"></canvas>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <button class="sidebar-btn" title="New Session">🆕</button>
+        <button class="sidebar-btn" title="History">📜</button>
+        <button class="sidebar-btn" title="Settings">⚙️</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>Welcome Back!</h1>
+        <p>Upload a file or type a topic to analyze.</p>
+
+        <!-- Upload Section -->
+        <div class="upload-area" id="upload-area">
+            <p id="upload-text">Click or drag & drop a file here</p>
+            <span id="file-name" class="file-name"></span>
+             <input type="file" id="file-input" hidden accept=".txt">
+        </div>
+
+
+        <!-- Textarea -->
+        <textarea id="topic-text" placeholder="Explain like I’m new to this topic"></textarea>
+
+        <!-- Analyze Button -->
+        <button id="analyze-btn">Analyze & Explain</button>
+
+        <!-- Loader -->
+        <div class="loader hidden" id="loader"></div>
+
+        <!-- Result Section -->
+        <div class="result hidden" id="result">
+            <h2>Analysis Result</h2>
+            <p id="result-text">This is where your explanation will appear.</p>
+            <button id="refine-btn">Refine Response</button>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="dashboard.js"></script>
+
+</body>
+</html>
